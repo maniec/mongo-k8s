@@ -43,9 +43,9 @@ metadata:
 spec:
   selector:
     app: mongo-express
-  type: LoadBalancer
+  type: LoadBalancer  # this type is what makes the service external (default is ClusterIP)
   ports:
     - protocol: TCP
       port: 8081
       targetPort: 8081
-      nodePort: 30000
+      nodePort: 30000 # this is also to externalize the service outside the node (is the port that goes in the browser)

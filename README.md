@@ -81,3 +81,21 @@ kubectl apply -f mongo-express.yaml
 kubectl get all | grep mongo
 kubectl logs mongo-express-5bf4b56f47-dd9xz
 ```
+
+## Services
+- Internal
+  - ClusterIP (default)
+  - Has an internal IP address
+  - Has an internal PORT assigned
+- External
+  - LoadBalancer
+  - Has both, internal and external IP addresses
+    - However as we are using minikube, external IP is handled a little different than a regular Kubernetes setup
+  - Has also both, internal and external (web) PORT addresses
+```shell
+kubectl get service
+# NAME                    TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+# mongo-express-service   LoadBalancer   10.105.133.90   <pending>     8081:30000/TCP   15m
+# mongodb-service         ClusterIP      10.106.172.19   <none>        27017/TCP        51m
+minikube service mongo-express-service
+```
