@@ -30,3 +30,17 @@ spec:
               secretKeyRef:
                 name: mongodb-secret
                 key: mongo-root-password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+spec:
+  # selector key/value here is very important. Selectors and Labels is a way Resources interconnect each other
+  selector:
+    # this key/value points to the same label key/value in the Deployment so to find the resources (Pods) to attach to
+    app: mongodb
+  ports:
+    - protocol: TCP
+      port: 27017         # exposed Service port
+      targetPort: 27017   # Container port > must match the one in the Deployment template
