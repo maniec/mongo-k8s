@@ -76,4 +76,8 @@ kubectl get pod -o wide
 # mongodb-deployment-844789cd64-vsbwn   1/1     Running   0          23m   172.17.0.3   minikube   <none>           <none>
 kubectl get all | grep mongo
 
+kubectl apply -f mongo-configmap.yaml
+kubectl apply -f mongo-express.yaml
+kubectl get all | grep mongo
+kubectl logs mongo-express-5bf4b56f47-dd9xz
 ```
