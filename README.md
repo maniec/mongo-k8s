@@ -7,7 +7,7 @@ cd mongo-k8s
 git init
 git branch -m main
 touch .gitignore
-touch README.md
+echo "# Mongo + Mongo Express on K8s" >> README.md
 git add .
 git commit -m "initial commit"
 # create repo in GitHub 
